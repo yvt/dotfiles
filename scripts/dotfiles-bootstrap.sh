@@ -8,13 +8,13 @@ popd > /dev/null
 cd
 
 function fatal {
-	echo "\033[1;31mFATAL\033[0m $@"
+	printf "\033[1;31mFATAL\033[0m %s\n" "$@"
 }
 function warn {
-	echo "\033[1;33mWARN\033[0m $@"
+	printf "\033[1;33mWARN\033[0m %s\n" "$@"
 }
 function notice {
-	echo "\033[1;32mNOTICE\033[0m $@"
+	printf "\033[1;32mNOTICE\033[0m %s\n" "$@"
 }
 
 function mklink {

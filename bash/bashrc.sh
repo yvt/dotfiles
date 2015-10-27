@@ -2,7 +2,7 @@
 # system check
 if [ "CHECK_SYSTEM" == "YES" ]; then
 	system_check_fail () {
-		echo "\033[1;31mSYSCHECK\033[0m $@"
+		printf "\033[1;31mSYSCHECK\033[0m %s\n" "$@"
 	}
 else
 	system_check_fail () {
