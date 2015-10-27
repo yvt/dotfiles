@@ -71,9 +71,9 @@ else
 	BASEDIR="~/.dotfiles"
 fi
 
-which -s vim || {
+which vim >/dev/null || {
 	fatal "You're missing something."
-	exit 1
+	exit 1 
 }
 
 mkdir -p .vim/bundle
