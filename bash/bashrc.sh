@@ -37,6 +37,7 @@ if which powerline-daemon >/dev/null ; then
 	POWERLINEPATH="/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh"
 	POWERLINEPATH+=" /Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh"
         POWERLINEPATH+=" /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh"
+        POWERLINEPATH+=" /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
 
 	for a in $POWERLINEPATH; do
 		if [ -e $a ]; then
