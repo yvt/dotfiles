@@ -10,6 +10,9 @@ else
 	}
 fi
 
+# set locale
+export LC_ALL=en_US.UTF-8
+
 # enable colored terminal
 
 case "$TERM" in
