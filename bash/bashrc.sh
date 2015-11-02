@@ -1,6 +1,6 @@
 
 # system check
-if [ "CHECK_SYSTEM" == "YES" ]; then
+if [ "$CHECK_SYSTEM" == "YES" ]; then
 	system_check_fail () {
 		printf "\033[1;31mSYSCHECK\033[0m %s\n" "$@"
 	}
@@ -31,26 +31,31 @@ if [ "$colorPrompt" == "yes" ]; then
 fi
 
 # setup powerline
+{
+	which powerline-daemon > /dev/null && {
+		powerline-daemon -q
+		POWERLINE_BASH_CONTINUATION=1
+		POWERLINE_BASH_SELECT=1
 
-if which powerline-daemon >/dev/null ; then
-	powerline-daemon -q
-	POWERLINE_BASH_CONTINUATION=1
-	POWERLINE_BASH_SELECT=1
+		POWERLINEPATH="/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh"
+		POWERLINEPATH+=" /Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh"
+		POWERLINEPATH+=" /Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh"
+		POWERLINEPATH+=" /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh"
+		POWERLINEPATH+=" /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
+		POWERLINEFOUND=NO
 
-	POWERLINEPATH="/usr/local/lib/python3.4/dist-packages/powerline/bindings/bash/powerline.sh"
-	POWERLINEPATH+=" /Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh"
-	POWERLINEPATH+=" /Library/Python/2.7/site-packages/powerline/bindings/bash/powerline.sh"
-	POWERLINEPATH+=" /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh"
-	POWERLINEPATH+=" /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
-
-	for a in $POWERLINEPATH; do
-		if [ -e $a ]; then
-			. $a
-		fi
-	done
-else
-	system_check_fail "powerline was not found."
-fi
+		for a in $POWERLINEPATH; do
+			if [ -e $a ]; then
+				. $a
+				POWERLINEFOUND=YES
+			fi
+		done
+		
+		[ $POWERLINEFOUND == YES ]
+	}
+} || system_check_fail "powerline was not found."
+unset POWERLINEPATH
+unset POWERLINEFOUND
 
 # RVM
 if [ -e /etc/profile.d/rvm.sh ]; then
