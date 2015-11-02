@@ -86,6 +86,8 @@ putdefault "$BASEDIR/profile/default_bash_profile.sh" .bash_profile
 
 addline .bashrc ". $BASEDIR/bash/bashrc.sh"
 
+notice "please make sure .tmux.conf updated properly."
+
 notice "Testing shell scripts..."
 export CHECK_SYSTEM=YES
 . ~/.bash_profile
