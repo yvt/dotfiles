@@ -14,7 +14,7 @@ fi
 export LC_ALL=en_US.UTF-8
 
 # fix TERM variable
-if [ "$TERM" == "screen" ]; then
+if [ "$TERM" == "screen" -a -f /usr/share/terminfo/s/screen-256color ]; then
 	export TERM=screen-256color
 fi
 
