@@ -13,6 +13,11 @@ fi
 # set locale
 export LC_ALL=en_US.UTF-8
 
+# fix TERM variable
+if [ "$TERM" == "screen" ]; then
+	export TERM=screen-256color
+fi
+
 # enable colored terminal
 
 case "$TERM" in
