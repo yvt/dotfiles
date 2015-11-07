@@ -50,6 +50,7 @@ fi
 		POWERLINEPATH+=" /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh"
 		POWERLINEPATH+=" /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
 		POWERLINEPATH+=" /opt/local/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh"
+		POWERLINEPATH+=" /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh"
 		POWERLINEFOUND=NO
 
 		for a in $POWERLINEPATH; do
