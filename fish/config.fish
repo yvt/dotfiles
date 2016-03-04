@@ -43,12 +43,12 @@ which powerline-daemon > /dev/null; and begin
   
   # locate the powerline
   set -l POWERLINE_DIRS "/usr/local/lib/python3.4/dist-packages"
-  set -l POWERLINE_DIRS "/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages"
-  set -l POWERLINE_DIRS "/Library/Python/2.7/site-packages"
-  set -l POWERLINE_DIRS "/usr/lib/python3.4/site-packages"
-  set -l POWERLINE_DIRS "/usr/lib/python2.7/site-packages"
-  set -l POWERLINE_DIRS "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages"
-  set -l POWERLINE_DIRS "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages"
+  set -l POWERLINE_DIRS $POWERLINE_DIRS "/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages"
+  set -l POWERLINE_DIRS $POWERLINE_DIRS "/Library/Python/2.7/site-packages"
+  set -l POWERLINE_DIRS $POWERLINE_DIRS "/usr/lib/python3.4/site-packages"
+  set -l POWERLINE_DIRS $POWERLINE_DIRS "/usr/lib/python2.7/site-packages"
+  set -l POWERLINE_DIRS $POWERLINE_DIRS "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/lib/python3.4/site-packages"
+  set -l POWERLINE_DIRS $POWERLINE_DIRS "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages"
   set -l POWERLINE_FOUND ""
 
   for POWERLINE_DIR in $POWERLINE_DIRS
