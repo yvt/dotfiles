@@ -2,7 +2,8 @@ set -x DOTFILES ~/.dotfiles
 
 # system check
 function system_check_fail
-  echo $argv
+  test $CHECK_SYSTEM = "YES"
+    and echo $argv
 end
 
 # Set locale
