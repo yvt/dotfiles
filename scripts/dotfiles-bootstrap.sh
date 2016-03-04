@@ -86,6 +86,9 @@ putdefault "$BASEDIR/profile/default_bash_profile.sh" .bash_profile
 
 addline .bashrc ". $BASEDIR/bash/bashrc.sh"
 
+mkdir -p .config/fish
+addline .config/fish/config.fish "source $BASEDIR/fish/config.fish"
+
 notice "please make sure .tmux.conf updated properly."
 
 notice "Testing shell scripts..."
