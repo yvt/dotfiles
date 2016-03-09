@@ -17,16 +17,16 @@ function add_path
     and set -x PATH $ADDED_PATH $PATH
 end
 
-add_path "/usr/local/bin"
-add_path "/usr/local/sbin"
-add_path "/opt/local/bin"
-add_path "/opt/local/sbin"
-add_path "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin"
-add_path "/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin"
-add_path "/Library/Frameworks/Python.framework/Versions/3.4/bin"
-add_path "~/.rakudobrew/bin"
-add_path "~/usr/bin"
-add_path $DOTFILES"/bin"
+add_path /usr/local/bin
+add_path /usr/local/sbin
+add_path /opt/local/bin
+add_path /opt/local/sbin
+add_path /opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin
+add_path /opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin
+add_path /Library/Frameworks/Python.framework/Versions/3.4/bin
+add_path ~/.rakudobrew/bin
+add_path ~/usr/bin
+add_path $DOTFILES/bin
 
 # Fix TERM variable
 test $TERM = screen
