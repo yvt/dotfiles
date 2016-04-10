@@ -1,13 +1,10 @@
 yvt does dotfiles
 =================
 
-Starring...
------------
-
-* **B** for **bash**: Brilliant and beloved by everyone
+* **bash**
   * the same as fish but doesn't define an alias for fancy `ls`
   * doesn't define commands
-* **F** for **fish**: Fancy functions make it fun to use
+* **fish**
   * changes the locale to `en_US.UTF-8`
   * update the `TERM` variable to `screen-256color` if it was `screen`
   * enables [Powerline](https://github.com/powerline/powerline) prompt
@@ -18,9 +15,9 @@ Starring...
     * `e`: abbreviation for `edit`
     * `g-s`: `git status`
     * `g-c`: `git commit`
-* **T** for **tmux**: Tames tons of terminals
+* **tmux**
   * enables [Powerline](https://github.com/powerline/powerline) status line
-* **V** for **vim**: View and edit a variety of files with the versatile editor
+* **vim**
   * disables the compatible mode
   * installs [Vundle](https://github.com/VundleVim/Vundle.vim) and some plugins
     * `vim-sleuth`
