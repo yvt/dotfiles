@@ -15,6 +15,8 @@ yvt does dotfiles
     * `e`: abbreviation for `edit`
     * `g-s`: `git status`
     * `g-c`: `git commit`
+* **ssh**
+  * Better configuration management by `update-ssh-config.sh`
 * **tmux**
   * enables [Powerline](https://github.com/powerline/powerline) status line
 * **vim**
