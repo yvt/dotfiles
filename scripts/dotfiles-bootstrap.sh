@@ -1,21 +1,6 @@
 #!/bin/bash
 
-pushd `dirname $0` > /dev/null
-BASEDIR=`pwd`
-BASEDIR=`dirname $BASEDIR`
-popd > /dev/null
-
-cd
-
-function fatal {
-	printf "\033[1;31mFATAL\033[0m %s\n" "$@"
-}
-function warn {
-	printf "\033[1;33mWARN\033[0m %s\n" "$@"
-}
-function notice {
-	printf "\033[1;32mNOTICE\033[0m %s\n" "$@"
-}
+. "`dirname $0`/lib/common.sh"
 
 function mklink {
 	if [ ! -e $2 ]; then
@@ -63,13 +48,6 @@ function putdefault {
 		warn "$TO already exists."
 	fi
 }
-
-if [ ! "$BASEDIR" == "$HOME/.dotfiles" ]; then
-	fatal "dotfiles must be at ~/.dotfiles"
-	exit 1
-else
-	BASEDIR="~/.dotfiles"
-fi
 
 which vim >/dev/null || {
 	fatal "You're missing something."

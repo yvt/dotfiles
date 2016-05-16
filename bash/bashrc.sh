@@ -10,6 +10,8 @@ else
 	}
 fi
 
+# TODO: add path
+
 # set locale
 export LC_ALL=en_US.UTF-8
 

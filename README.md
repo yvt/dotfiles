@@ -26,11 +26,19 @@ yvt does dotfiles
 Featuring a few programs...
 --------------------------
 
-* `dotfiles-bootstrap.sh` updates config files automatically.
-  * Note that this script doesn't install the required programs.
-  * Cannot update some files yet.
-* `random-hex` generates a random string suitable fo use as a password.
+- `dotfiles-bootstrap.sh` updates config files automatically.
+  - Note that this script doesn't install the required programs.
+  - Cannot update some files yet.
+- `update-ssh-config.sh`: `.ssh/config` doesn't support inclusion of files. This is where `update-ssh-config.sh` comes in! It merges all config files in `(private/)?ssh/config.d` and creates `.ssh/config` file.
+- `random-hex` generates a random string suitable fo use as a password.
   Don't forget to make sure no one except you are watching the terminal, and to clear the terminal after using this!
+
+
+Private directory
+-----------------
+
+You might not want to expose SSH config files or something like that into the public repository because doing so would result in a potential security risk. So `.dotfiles/private` is reserved for private information. Clone your own private dotfiles respository to `private`. `private-example` shows an example.
+
 
 Notes
 -----

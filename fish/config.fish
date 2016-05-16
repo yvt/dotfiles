@@ -27,6 +27,7 @@ add_path /Library/Frameworks/Python.framework/Versions/3.4/bin
 add_path ~/.rakudobrew/bin
 add_path ~/usr/bin
 add_path $DOTFILES/bin
+add_path $DOTFILES/private/bin
 
 # Fix TERM variable
 test $TERM = screen
