@@ -28,6 +28,7 @@ add_path ~/.rakudobrew/bin
 add_path ~/usr/bin
 add_path $DOTFILES/bin
 add_path $DOTFILES/private/bin
+add_path $DOTFILES/local/bin
 
 # Fix TERM variable
 test $TERM = screen

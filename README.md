@@ -41,6 +41,10 @@ Private directory
 
 You might not want to expose SSH config files or something like that into the public repository because doing so would result in a potential security risk. So `.dotfiles/private` is reserved for private information. Clone your own private dotfiles respository to `private`. `private-example` shows an example.
 
+Local directory
+---------------
+
+Place host-local scripts in `local/bin`.
 
 Notes
 -----
