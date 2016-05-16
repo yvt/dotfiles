@@ -11,7 +11,7 @@ if [ -e "$TARGET" ]; then
 		warn "update-ssh-config.sh will overwrite it. Is it okay?"
 		echo -n "Hit ENTER to proceed, or Ctrl-C to cancel > "
 		read
-		if [ -e "$TARGET.backup"]; then
+		if [ -e "$TARGET.backup" ]; then
 			fatal ".ssh/config.backup exists. Cannot create backup."
 			exit 1
 		fi
