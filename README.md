@@ -30,7 +30,6 @@ Featuring a few programs...
 
 - `dotfiles-bootstrap.py` updates config files automatically.
   - Note that this script doesn't install the required programs.
-  - Cannot update some files yet.
   - `.ssh/config` doesn't support inclusion of files. This is also where `dotfiles-bootstrap.py` comes in! It merges all config files in `(private/|local/)?ssh/config.d` and creates `.ssh/config` file.
 - `random-hex` generates a random string suitable fo use as a password.
   Don't forget to make sure no one except you are watching the terminal, and to clear the terminal after using this!
