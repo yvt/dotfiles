@@ -10,8 +10,6 @@ else
 	}
 fi
 
-# TODO: add path
-
 # set locale
 export LC_ALL=en_US.UTF-8
 
@@ -61,7 +59,7 @@ fi
 				POWERLINEFOUND=YES
 			fi
 		done
-		
+
 		[ $POWERLINEFOUND == YES ]
 	}
 } || system_check_fail "powerline was not found."

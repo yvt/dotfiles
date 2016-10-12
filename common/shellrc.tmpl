@@ -1,0 +1,32 @@
+#import dotfiler.components as comps
+#import dotfiler.paths as paths
+#import os.path as path
+#import os as os
+
+#template add_path(lib, p)
+#{if path.exists(p):
+%{lib.add_path_no_check(p)}%>
+#}
+#end template
+
+#template main(lib)
+
+#* Add PATHs
+#{ for p in paths.executables:
+%{add_path(lib, p)}%>
+#}
+
+#* Fix TERM variable
+#{if comps.get("Screen256ColorTermInfo").exists:
+%{lib.replace_env("TERM", "screen", "screen-256color")}%>
+#}
+
+#* What is man's best friend?
+%{lib.set_env_if_not_in("EDITOR", ["vim", "subl"], "vim")}%>
+
+#* Abbreviations
+%{lib.define_abbr("e", "edit")}%>
+%{lib.define_abbr("g-s", "git status")}%>
+%{lib.define_abbr("g-c", "git commit")}%>
+
+#end template
