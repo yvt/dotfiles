@@ -173,3 +173,16 @@ class PowerlineStatusPackage(PythonPackage):
             return True
         self.log("Bindings were not found for '%s'." % pkg_path)
         return False
+
+class RVM(Component):
+    def __init__(self):
+        super(RVM, self).__init__()
+
+        bash_profile = "/etc/profile.d/rvm.sh"
+        if path.exists(bash_profile):
+            self.bash_profile = bash_profile
+            self.mark_found()
+        else:
+            self.log("'%s' was not found." % bash_profile)
+    def __str__(self):
+        return "RVM"

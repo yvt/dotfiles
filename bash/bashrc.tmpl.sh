@@ -32,11 +32,9 @@ POWERLINE_BASH_SELECT=1
 #}
 
 #* RVM
-#{if path.exists("/etc/profile.d/rvm.sh"):
-. /etc/profile.d/rvm.sh
-#}
-#{else:
-#! log.warn("'/etc/profile.d/rvm.sh' not found.")
+#!rvm = comps.get("RVM")
+#{if rvm.exists:
+. %{lib.escape(rvm.bash_profile)}
 #}
 
 #* Editor
