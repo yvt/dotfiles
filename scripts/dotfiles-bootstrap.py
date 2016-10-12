@@ -120,7 +120,7 @@ git_clone("vim", path.join(home_dir, ".vim/bundle/Vundle.vim"), "https://github.
 translate("vim", "vim/vimrc.tmpl", "derived/vimrc", Parser(sub_ch='%'))
 per_line_patch("vim", path.join(home_dir, ".vimrc"),
     added_lines=["source %s/derived/vimrc" % base_path],
-    removed_lines=["source ~/.dotfiles/vim/vimrc"])
+    removed_lines=["source ~/.dotfiles/vim/vimrc", "source %s/vim/vimrc" % base_path])
 
 copy_no_overwrite("Default bash profile", "profile/default_bash_profile.sh", path.join(home_dir, ".bash_profile"))
 
@@ -128,11 +128,11 @@ translate("fishrc", "fish/config.tmpl.fish", "derived/config.fish", Parser(sub_c
 mkdirp("fishrc", path.join(home_dir, ".config/fish"))
 per_line_patch("fishrc", path.join(home_dir, ".config/fish/config.fish"),
     added_lines=["source %s/derived/config.fish" % base_path],
-    removed_lines=["source %s/fish/config.fish" % base_path])
+    removed_lines=["source %s/fish/config.fish" % base_path, "source ~/.dotfiles/fish/config.fish"])
 
 translate("bashrc", "bash/bashrc.tmpl.sh", "derived/bashrc.sh", Parser(sub_ch='%'))
 per_line_patch("bashrc", path.join(home_dir, ".bashrc"),
     added_lines=[". %s/derived/bashrc.sh" % base_path],
-    removed_lines=[". %s/bash/bashrc.sh" % base_path])
+    removed_lines=[". %s/bash/bashrc.sh" % base_path, ". ~/.dotfiles/bash/bashrc.sh"])
 
 log.warn("patching .tmux.conf is not supported yet.")
