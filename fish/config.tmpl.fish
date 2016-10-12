@@ -5,12 +5,6 @@
 #load "../common/shellrc.tmpl" as shellrc
 #load "./lib.tmpl.fish" as lib
 
-#template add_path(p)
-#{ if path.exists(p):
-add_path "%p"
-#}
-#end template
-
 #template main(options)
 %{"# " + options['banner']}
 
