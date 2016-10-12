@@ -28,10 +28,10 @@ yvt does dotfiles
 Featuring a few programs...
 --------------------------
 
-- `dotfiles-bootstrap.sh` updates config files automatically.
+- `dotfiles-bootstrap.py` updates config files automatically.
   - Note that this script doesn't install the required programs.
   - Cannot update some files yet.
-- `update-ssh-config.sh`: `.ssh/config` doesn't support inclusion of files. This is where `update-ssh-config.sh` comes in! It merges all config files in `(private/)?ssh/config.d` and creates `.ssh/config` file.
+  - `.ssh/config` doesn't support inclusion of files. This is also where `dotfiles-bootstrap.py` comes in! It merges all config files in `(private/|local/)?ssh/config.d` and creates `.ssh/config` file.
 - `random-hex` generates a random string suitable fo use as a password.
   Don't forget to make sure no one except you are watching the terminal, and to clear the terminal after using this!
 
