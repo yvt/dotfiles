@@ -22,8 +22,8 @@ add_path() {
 %{shellrc.main(lib)}%>
 
 #* Setup powerline
-#!powerline_pkg = comps.get("PowerlineStatusPackage")
-#!powerline_daemon = comps.get("PowerlineDaemon")
+#!powerline_pkg = comps.PowerlineStatusPackage.get()
+#!powerline_daemon = comps.PowerlineDaemon.get()
 #{if powerline_pkg.exists and powerline_daemon.exists:
 %{powerline_daemon.path} -q
 POWERLINE_BASH_CONTINUATION=1
@@ -32,7 +32,7 @@ POWERLINE_BASH_SELECT=1
 #}
 
 #* RVM
-#!rvm = comps.get("RVM")
+#!rvm = comps.RVM.get()
 #{if rvm.exists:
 . %{lib.escape(rvm.bash_profile)}
 #}

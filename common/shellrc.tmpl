@@ -17,7 +17,7 @@
 #}
 
 #* Fix TERM variable
-#{if comps.get("Screen256ColorTermInfo").exists:
+#{if comps.Screen256ColorTermInfo.get().exists:
 %{lib.replace_env("TERM", "screen", "screen-256color")}%>
 #}
 

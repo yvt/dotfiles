@@ -24,6 +24,10 @@ class Component(object):
                 for msg in msgs:
                     log.notice("    " + msg)
 
+    @classmethod
+    def get(cls):
+        return get_component(cls)
+
 __loaded_components = {}
 
 def get_component(comp_class):
@@ -33,8 +37,6 @@ def get_component(comp_class):
         __loaded_components[comp_class] = inst
         inst.finalize()
     return inst
-
-get = lambda name: get_component(globals()[name])
 
 class Executable(Component):
     def __init__(self, name):

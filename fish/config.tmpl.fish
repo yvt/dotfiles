@@ -21,8 +21,8 @@ end
 %{shellrc.main(lib)}%>
 
 #* Setup powerline
-#!powerline_pkg = comps.get("PowerlineStatusPackage")
-#!powerline_daemon = comps.get("PowerlineDaemon")
+#!powerline_pkg = comps.PowerlineStatusPackage.get()
+#!powerline_daemon = comps.PowerlineDaemon.get()
 #{if powerline_pkg.exists and powerline_daemon.exists:
 %{powerline_daemon.path} -q
 set fish_function_path $fish_function_path %{lib.escape(path.join(powerline_pkg.bindings_path, "fish"))}
