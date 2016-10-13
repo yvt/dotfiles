@@ -115,6 +115,35 @@ class PythonPackage(Component):
     def __str__(self):
         return "Python package '%s'" % self.name
 
+class TermCap(Component):
+    def __init__(self, name):
+        super(TermCap, self).__init__()
+        self.name = name
+    def search_standard_dbs(self):
+        for prefix in prefixes:
+            self.search_db(path.join(prefix, "share/misc/termcap"))
+    def search_db(self, termcap_path):
+        if self.exists:
+            return
+        if not os.path.exists(termcap_path):
+            self.log("'%s' was not found." % termcap_path)
+            return
+        with open(termcap_path, 'r') as f:
+            termcap_src = f.read().decode('utf8')
+        lines = termcap_src.replace('\\\n', '').splitlines()
+        for line in lines:
+            line = line.strip()
+            if line.startswith('#'):
+                continue
+            i = line.find(':')
+            if i < 1:
+                continue
+            line = line[0:i].split('|')
+            if self.name in line:
+                self.mark_found()
+                return
+        self.log("terminal '%s' was not found in '%s'." % (self.name, termcap_path))
+
 class TermInfo(Component):
     def __init__(self, name):
         super(TermInfo, self).__init__()
@@ -148,6 +177,11 @@ class TermInfo(Component):
             self.log("'%s' was not found." % fn)
     def __str__(self):
         return "Terminfo '%s'" % self.name
+
+class Screen256ColorTermCap(TermCap):
+    def __init__(self):
+        super(Screen256ColorTermCap, self).__init__('screen-256color')
+        self.search_standard_dbs()
 
 class Screen256ColorTermInfo(TermInfo):
     def __init__(self):
