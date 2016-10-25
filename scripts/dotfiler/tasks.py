@@ -17,7 +17,7 @@ def mkdirp(task_name, path):
 
 def exec_cmd(task_name, cmd):
     log.notice("%s: exec: %s" % (task_name, cmd))
-    ret = system("git clone ")
+    ret = os.system(cmd)
     if ret != 0:
         log.error("%s: command '%s' failed with error code %d." % (task_name, cmd, ret))
 
@@ -38,7 +38,7 @@ def copy_no_overwrite(task_name, orig_path, out_path):
     if path.exists(out_path):
         log.notice("%s: copy: '%s' already exists." % (task_name, out_path))
         return
-    os.copy(orig_path, out_path)
+    shutil.copy(orig_path, out_path)
     log.success("%s: copy: %s --> %s" % (task_name, orig_path, out_path))
 
 def per_line_patch(task_name, out_path, added_lines=[], removed_lines=[]):
