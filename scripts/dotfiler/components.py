@@ -1,5 +1,5 @@
 import os
-from .paths import prefixes, executables
+from .paths import prefixes, executables, weak_executables
 import dotfiler.logger as log
 import os.path as path
 
@@ -46,6 +46,8 @@ class Executable(Component):
 
     def search_standard_directories(self):
         for par_dir in executables:
+            self.search_directory(par_dir)
+        for par_dir in weak_executables:
             self.search_directory(par_dir)
 
     def search_directory(self, par_dir):

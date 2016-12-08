@@ -9,11 +9,20 @@
 #}
 #end template
 
+#template add_path_weak(lib, p)
+#{if path.exists(p):
+%{lib.add_path_weak_no_check(p)}%>
+#}
+#end template
+
 #template main(lib)
 
 #* Add PATHs
 #{ for p in paths.executables:
 %{add_path(lib, p)}%>
+#}
+#{ for p in paths.weak_executables:
+%{add_path_weak(lib, p)}%>
 #}
 
 #* Fix TERM variable

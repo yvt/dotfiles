@@ -2,6 +2,10 @@
 add_path %{escape(p)}
 #end template
 
+#template add_path_weak_no_check(p)
+add_path_weak %{escape(p)}
+#end template
+
 #template replace_env(name, old_term, new_term)
 test $%name = %{escape(old_term)}
   and set -x %name %{escape(new_term)}
