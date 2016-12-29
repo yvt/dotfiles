@@ -17,6 +17,12 @@ function add_path
     and set -x PATH $ADDED_PATH $PATH
 end
 
+function add_path_weak
+  set ADDED_PATH $argv[1]
+  not contains $ADDED_PATH $PATH
+    and set -x PATH $PATH $ADDED_PATH
+end
+
 #* Emit the shared part
 %{shellrc.main(lib)}%>
 

@@ -12,7 +12,13 @@
 #* Set locale
 export LC_ALL="en_US.UTF-8"
 
-add_path() {
+add_path() { # FIXME: confirm this
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+add_path_weak() { # FIXME: confirm this
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
         PATH="${PATH:+"$PATH:"}$1"
     fi
