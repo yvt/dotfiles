@@ -22,6 +22,7 @@ executables.append("/opt/local/Library/Frameworks/Python.framework/Versions/3.4/
 executables.append("/Library/Frameworks/Python.framework/Versions/2.7/bin")
 executables.append("/Library/Frameworks/Python.framework/Versions/3.4/bin")
 executables.append(path.join(home, ".rakudobrew/bin"))
+executables.append(path.join(home, ".cargo/bin"))
 executables.append(path.join(dotfiles, "local", "bin"))
 executables.append(path.join(dotfiles, "private", "bin"))
 executables.append(path.join(dotfiles, "derived"))
