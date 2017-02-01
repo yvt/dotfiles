@@ -18,6 +18,7 @@ executables = [path.join(prefix, "bin") for prefix in prefixes]
 executables += [path.join(prefix, "sbin") for prefix in prefixes]
 executables.append(path.join(home, "usr/bin"))
 executables.append(path.join(home, ".rakudobrew/bin"))
+executables.append(path.join(home, ".cargo/bin"))
 executables.append(path.join(dotfiles, "local", "bin"))
 executables.append(path.join(dotfiles, "private", "bin"))
 executables.append(path.join(dotfiles, "derived"))
