@@ -224,3 +224,8 @@ class RVM(Component):
             self.log("'%s' was not found." % bash_profile)
     def __str__(self):
         return "RVM"
+
+class Pipenv(Executable):
+    def __init__(self):
+        super(Pipenv, self).__init__('pipenv')
+        self.search_standard_directories()

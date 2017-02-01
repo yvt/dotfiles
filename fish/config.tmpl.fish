@@ -35,6 +35,12 @@ set fish_function_path $fish_function_path %{lib.escape(path.join(powerline_pkg.
 powerline-setup
 #}
 
+#* Setup pipenv
+#!pipenv = comps.Pipenv.get()
+#{if pipenv.exists:
+eval (env _PIPENV_COMPLETE=source-fish %{lib.escape(pipenv.path)})
+#}
+
 #* Editor
 function edit
   eval $EDITOR $argv

@@ -37,6 +37,8 @@ POWERLINE_BASH_SELECT=1
 . %{lib.escape(path.join(powerline_pkg.bindings_path, "bash/powerline.sh"))}
 #}
 
+#* TODO: pipenv
+
 #* RVM
 #!rvm = comps.RVM.get()
 #{if rvm.exists:
