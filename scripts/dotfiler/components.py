@@ -69,7 +69,7 @@ class Executable(Component):
     def __str__(self):
         return "Executable '%s'" % self.name
 
-python_vers = ("2.7", "3.4")
+python_vers = ("2.7", "3.4", "3.6")
 python_pkg_dirs = [
     os.path.join(prefix, "lib", "python" + ver, sd + "-packages")
     for sd in ("site", "dist")

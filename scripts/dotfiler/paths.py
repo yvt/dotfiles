@@ -29,7 +29,9 @@ executables = [p for p in executables if path.exists(p)]
 weak_executables = []
 weak_executables.append("/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin")
 weak_executables.append("/opt/local/Library/Frameworks/Python.framework/Versions/3.4/bin")
+weak_executables.append("/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin")
 weak_executables.append("/Library/Frameworks/Python.framework/Versions/2.7/bin")
 weak_executables.append("/Library/Frameworks/Python.framework/Versions/3.4/bin")
+weak_executables.append("/Library/Frameworks/Python.framework/Versions/3.6/bin")
 
 weak_executables = [p for p in weak_executables if path.exists(p)]
