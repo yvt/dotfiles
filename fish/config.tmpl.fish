@@ -41,6 +41,12 @@ powerline-setup
 eval (env _PIPENV_COMPLETE=source-fish %{lib.escape(pipenv.path)})
 #}
 
+#* Setup OPAM
+#!opam = comps.OPAM.get()
+#{if opam.exists:
+eval (%{lib.escape(opam.path)} config env)
+#}
+
 #* Editor
 function edit
   eval $EDITOR $argv

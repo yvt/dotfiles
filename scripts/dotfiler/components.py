@@ -229,3 +229,9 @@ class Pipenv(Executable):
     def __init__(self):
         super(Pipenv, self).__init__('pipenv')
         self.search_standard_directories()
+
+class OPAM(Executable):
+    def __init__(self):
+        super(OPAM, self).__init__('opam')
+        self.search_standard_directories()
+

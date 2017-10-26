@@ -45,6 +45,8 @@ POWERLINE_BASH_SELECT=1
 . %{lib.escape(rvm.bash_profile)}
 #}
 
+#* TODO: OPAM
+
 #* Editor
 alias edit=$EDITOR
 
