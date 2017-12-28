@@ -52,4 +52,7 @@ function edit
   eval $EDITOR $argv
 end
 
+#* fish-specific aliases
+abbr -- -t 'tmux attach; or tmux new'
+
 #end template

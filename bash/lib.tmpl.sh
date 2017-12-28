@@ -19,7 +19,7 @@ fi
 #end template
 
 #template define_abbr(name, cmd)
-alias %name=%{escape(cmd)}
+alias -- %name=%{escape(cmd)}
 #end template
 
 #* FIXME: this is not safe

@@ -17,7 +17,7 @@ not contains $%name %{" ".join((escape(t) for t in old_term))}
 #end template
 
 #template define_abbr(name, cmd)
-abbr %name %cmd
+abbr -- %name %cmd
 #end template
 
 #* FIXME: this is not safe

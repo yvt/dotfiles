@@ -15,6 +15,7 @@ yvt does dotfiles
     * `e`: abbreviation for `edit`
     * `g-s`: `git status`
     * `g-c`: `git commit`
+    * `-t`: `tmux attach || tmux new`
 * **ssh**
   * Better configuration management by `update-ssh-config.sh`
 * **tmux**

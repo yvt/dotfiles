@@ -50,4 +50,7 @@ POWERLINE_BASH_SELECT=1
 #* Editor
 alias edit=$EDITOR
 
+#* bash-specific aliases
+alias -- -t='tmux attach || tmux new'
+
 #end template
