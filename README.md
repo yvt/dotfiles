@@ -16,6 +16,9 @@ yvt does dotfiles
     * `g-s`: `git status`
     * `g-c`: `git commit`
     * `-t`: `tmux attach || tmux new`
+    * `-jc`: `journalctl`, `-sc`: 'systemctl'
+    * `sc-[tprs]`: `systemctl (start|stop|restart|status)`, respectively
+    * `jc-x`: `journalctl -xe`
 * **ssh**
   * Better configuration management by `update-ssh-config.sh`
 * **tmux**
