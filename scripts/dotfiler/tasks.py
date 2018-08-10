@@ -45,7 +45,7 @@ def per_line_patch(task_name, out_path, added_lines=[], removed_lines=[]):
     content = ""
     try:
         with open(out_path) as f:
-            content = f.read().decode("utf8")
+            content = f.read()
     except:
         if path.exists(out_path):
             raise
