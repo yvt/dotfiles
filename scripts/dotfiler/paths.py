@@ -1,6 +1,5 @@
 import os.path as path
 import os
-from dotfiler.nix import get_derivation_out_path
 
 home = os.getenv("HOME")
 
@@ -14,19 +13,6 @@ prefixes = (
 )
 
 prefixes = [p for p in prefixes if path.exists(p)]
-
-def get_prefixes(nix_pkgs=[]):
-    """ Get a set of prefixes using additional options.
-
-        - nix_pkgs: Zero or more NixOS derivation attribute names.
-    """
-    ret = prefixes[:]
-    
-    ret += filter(lambda x: x is not None,
-        [get_derivation_out_path(x) for x in nix_pkgs])
-
-    return ret
-
 
 executables = [path.join(prefix, "bin") for prefix in prefixes]
 executables += [path.join(prefix, "sbin") for prefix in prefixes]

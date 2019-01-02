@@ -1,5 +1,5 @@
 import os
-from .paths import prefixes, executables, weak_executables, get_prefixes
+from .paths import prefixes, executables, weak_executables
 import dotfiler.logger as log
 import os.path as path
 
@@ -153,7 +153,7 @@ class TermInfo(Component):
         self.name = name
 
     def search_standard_directories(self):
-        for prefix in get_prefixes(nix_pkgs=['ncurses']):
+        for prefix in prefixes:
             self.search_directory(path.join(prefix, "share/terminfo"))
             self.search_directory(path.join(prefix, "lib/terminfo"))
 
