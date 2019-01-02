@@ -235,3 +235,7 @@ class OPAM(Executable):
         super(OPAM, self).__init__('opam')
         self.search_standard_directories()
 
+class PowerlineRS(Executable):
+    def __init__(self):
+        super(PowerlineRS, self).__init__('powerline-rs')
+        self.search_standard_directories()

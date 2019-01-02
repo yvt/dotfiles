@@ -28,9 +28,16 @@ add_path_weak() { # FIXME: confirm this
 %{shellrc.main(lib)}%>
 
 #* Setup powerline
+#!powerline_rs = comps.PowerlineRS.get()
 #!powerline_pkg = comps.PowerlineStatusPackage.get()
 #!powerline_daemon = comps.PowerlineDaemon.get()
-#{if powerline_pkg.exists and powerline_daemon.exists:
+#{if powerline_rs.exists:
+prompt() {
+    PS1="$(%{powerline_rs.path} --shell bash $?)"
+}
+PROMPT_COMMAND=prompt
+#}
+#{elif powerline_pkg.exists and powerline_daemon.exists:
 %{powerline_daemon.path} -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
