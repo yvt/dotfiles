@@ -9,7 +9,8 @@ prefixes = (
     "/",
     "/usr",
     "/usr/local",
-    "/opt/local"
+    "/opt/local",
+    "/run/current-system/sw",
 )
 
 prefixes = [p for p in prefixes if path.exists(p)]
