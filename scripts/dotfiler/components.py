@@ -239,3 +239,10 @@ class PowerlineRS(Executable):
     def __init__(self):
         super(PowerlineRS, self).__init__('powerline-rs')
         self.search_standard_directories()
+
+class Lsd(Executable):
+    """ The next gen ls command (https://github.com/Peltoche/lsd)
+    """
+    def __init__(self):
+        super(Lsd, self).__init__('lsd')
+        self.search_standard_directories()
