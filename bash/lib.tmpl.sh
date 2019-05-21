@@ -22,6 +22,10 @@ fi
 alias -- %name=%{escape(cmd)}
 #end template
 
+#template define_alias(name, cmd)
+alias -- %name=%{escape(cmd)}
+#end template
+
 #* FIXME: this is not safe
 #template escape(string)
 '%string'%>

@@ -47,11 +47,11 @@
 %{lib.define_abbr("lg", "lazygit")}%>
 
 #{if comps.Lsd.get().exists:
-%{lib.define_abbr("ls", comps.Lsd.get().path)}%>
-%{lib.define_abbr("l", comps.Lsd.get().path + " -l")}%>
-%{lib.define_abbr("la", comps.Lsd.get().path + " -a")}%>
-%{lib.define_abbr("lla", comps.Lsd.get().path + " -la")}%>
-%{lib.define_abbr("lt", comps.Lsd.get().path + " --tree")}%>
+%{lib.define_alias("ls", comps.Lsd.get().path)}%>
+%{lib.define_abbr("l", "ls -l")}%>
+%{lib.define_abbr("la", "ls -a")}%>
+%{lib.define_abbr("lla", "ls -la")}%>
+%{lib.define_abbr("lt", "ls --tree")}%>
 #}
 
 #end template

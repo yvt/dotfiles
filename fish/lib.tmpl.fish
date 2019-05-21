@@ -20,6 +20,10 @@ not contains $%name %{" ".join((escape(t) for t in old_term))}
 abbr -- %name %cmd
 #end template
 
+#template define_alias(name, cmd)
+alias -- %name %cmd
+#end template
+
 #* FIXME: this is not safe
 #template escape(string)
 "%string"%>
