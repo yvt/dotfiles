@@ -19,6 +19,10 @@ executables = [path.join(prefix, "bin") for prefix in prefixes]
 executables.append(path.join(home, "usr/bin"))
 executables.append(path.join(home, ".rakudobrew/bin"))
 executables.append(path.join(home, ".cargo/bin"))
+# > And make sure that "~/.cabal/bin" comes *before* "~/.ghcup/bin"
+# > in your PATH!
+executables.append(path.join(home, ".cabal/bin"))
+executables.append(path.join(home, ".ghcup/bin"))
 executables.append(path.join(home, ".nix-profile/bin"))
 executables.append(path.join(home, "Library/Haskell/bin"))
 executables.append(path.join(dotfiles, "local", "bin"))
