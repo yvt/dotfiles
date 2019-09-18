@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, sys, shutil, errno
+import os, sys, shutil, errno, glob
 import os.path as path
 from optparse import OptionParser
 from texthon.parser import Parser
@@ -66,3 +66,22 @@ concatenate("ssh config", path.join(home_dir, ".ssh/config"), [
 translate("tmux", "tmux/tmux.tmpl.conf", "derived/tmux.conf", Parser(sub_ch='%'))
 per_line_patch("tmux", path.join(home_dir, ".tmux.conf"),
     added_lines=['source "%s/derived/tmux.conf"' % base_path])
+
+# Unison file synchronizer (https://github.com/bcpierce00/unison)
+# TODO: delete old profiles
+unison_profiles = [f
+    for glb in ["local/unison/*.prf", "private/unison/*.prf", "unison/*.prf"]
+    for f in glob.iglob(glb)]
+mkdirp("unison", "derived/unison")
+for name in unison_profiles:
+    log.notice("unison: found %s" % name)
+    if name.endswith('.tmpl.prf'):
+        translated = "derived/unison/%s.prf" % path.basename(name)[:-9]
+        translate("unison %s" % path.basename(name), name, translated, Parser(sub_ch='%'))
+    else:
+        translated = name
+
+    concatenate(
+        "unison %s" % path.basename(name),
+        path.join(paths.unison_data, path.basename(translated)),
+        [translated])

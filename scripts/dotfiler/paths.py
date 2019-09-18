@@ -1,5 +1,5 @@
 import os.path as path
-import os
+import os, sys
 
 home = os.getenv("HOME")
 
@@ -41,3 +41,9 @@ weak_executables.append("/Library/Frameworks/Python.framework/Versions/3.4/bin")
 weak_executables.append("/Library/Frameworks/Python.framework/Versions/3.6/bin")
 
 weak_executables = [p for p in weak_executables if path.exists(p)]
+
+# Unison file synchronizer (https://github.com/bcpierce00/unison)
+if sys.platform == 'darwin':
+    unison_data = path.join(home, 'Library/Application Support/Unison')
+else:
+    unison_data = path.join(home, '.unison')
