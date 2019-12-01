@@ -73,6 +73,7 @@ unison_profiles = [f
     for glb in ["local/unison/*.prf", "private/unison/*.prf", "unison/*.prf"]
     for f in glob.iglob(glb)]
 mkdirp("unison", "derived/unison")
+mkdirp("unison", paths.unison_data)
 for name in unison_profiles:
     log.notice("unison: found %s" % name)
     if name.endswith('.tmpl.prf'):
