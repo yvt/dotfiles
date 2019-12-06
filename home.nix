@@ -16,9 +16,6 @@ in
     # Fancy shell prompt
     ./modules/programs/powerline-rs.nix
 
-    # Fancy tmux
-    ./modules/programs/powerline-tmux.nix
-
     # Fancy "ls"
     ./modules/programs/lsd.nix
 
@@ -107,6 +104,10 @@ in
 
     # Want the session to survive user logout
     secureSocket = false;
+
+    plugins = [
+      (callPackage ./pkgs/tmux-plugins/nord.nix {})
+    ];
   };
 
   # TODO: check `EDITOR` variable
