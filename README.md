@@ -1,6 +1,22 @@
 yvt does dotfiles
 =================
 
+First, install [Home Manager](https://github.com/rycee/home-manager):
+
+```shell
+$ nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+$ nix-channel --update
+```
+
+And then do:
+
+```shell
+$ ln -s `pwd` ~/.config/nixpkgs
+$ nix-env -f '<nixpkgs>' -iA home-manager
+```
+
+TODO:
+
 * **bash**
   * the same as fish but doesn't define an alias for fancy `ls`
   * doesn't define commands
@@ -53,4 +69,4 @@ Notes
 -----
 
 This dotfiles uses [Powerline](https://github.com/powerline/powerline) for fancy
-prompt so you need to use the [patched fonts](https://github.com/powerline/fonts). 
+prompt so you need to use the [patched fonts](https://github.com/powerline/fonts).
