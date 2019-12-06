@@ -1,5 +1,2 @@
-vim/vim/bundle/*
 /private
 /local
-/derived
-*.pyc
