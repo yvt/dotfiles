@@ -10,8 +10,8 @@ in
 
 {
   imports = filter (e: e != null) [
-    (if pathExists ./private then ./private/home.nix else null)
-    (if pathExists ./local then ./local/home.nix else null)
+    (if pathExists ./private/home.nix then ./private/home.nix else null)
+    (if pathExists ./local/home.nix then ./local/home.nix else null)
 
     # Fancy shell prompt
     ./modules/programs/powerline-rs.nix
