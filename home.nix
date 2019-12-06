@@ -96,7 +96,16 @@ in
       '';
   };
 
-  # TODO: replace `TERM=screen` with `TERM=screen-256color`?
+  # tmux
+  # -------------------------------------------------------------------------
+  programs.tmux = {
+    enable = true;
+    terminal = "screen-256color";
+
+    # Want the session to survive user logout
+    secureSocket = false;
+  };
+
   # TODO: check `EDITOR` variable
   # TODO: add PATHs
 
@@ -115,7 +124,6 @@ in
     python2
     python3
     ripgrep
-    tmux
     unzip
     wget
     whois
