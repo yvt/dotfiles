@@ -62,6 +62,11 @@ in
     "sc-s" = "systemctl status";
   };
 
+  programs.powerline-rs = {
+    enable = true;
+    modules = [ "host" "cwd" "perms" "git" "gitstage" "root" ];
+  };
+
   # SSH Client
   # -------------------------------------------------------------------------
   programs.ssh = {
