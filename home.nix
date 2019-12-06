@@ -40,9 +40,7 @@ in
 
   # configure PATH and other variables to use Nix
   programs.fish.loginShellInit =
-    ''
-      source ${./fish/nix.fish}
-    '';
+    if isDarwin then "source ${./fish/nix.fish}" else "";
 
   # Shells
   # -------------------------------------------------------------------------
@@ -55,9 +53,9 @@ in
     "gil" = "git issue list -l short";
   }
   // optionalAttrs (!isDarwin) {
-    "-jc" = "journalctl";
+    "jc" = "journalctl";
     "jc-x" = "journalctl -xe";
-    "-sc" = "systemctl";
+    "sc" = "systemctl";
     "sc-t" = "systemctl start";
     "sc-p" = "systemctl stop";
     "sc-r" = "systemctl restart";
@@ -159,7 +157,7 @@ in
     "${home}/.config/nixpkgs/local/bin"
   ];
 
-  home.paths = optional (!isDarwin) [
+  home.paths = optionals (!isDarwin) [
     # Homebrew, MacPorts
     "/usr/local/bin"
     "/opt/local/bin"
