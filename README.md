@@ -14,7 +14,6 @@ Next, install [Home Manager](https://github.com/rycee/home-manager):
 ```shell
 nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
-nix-env -iA home-manager
 ```
 
 And then do:
