@@ -12,6 +12,8 @@ in
   imports = filter (e: e != null) [
     (if pathExists ./private then ./private/home.nix else null)
     (if pathExists ./local then ./local/home.nix else null)
+
+    ./modules/programs/powerline-rs.nix
   ];
 
   programs.home-manager.enable = true;
@@ -38,7 +40,6 @@ in
   # TODO: check `EDITOR` variable
   # TODO: add PATHs
   # TODO: add LSD
-  # TODO: add powerline-rs
 
   # configure PATH and other variables to use Nix
   programs.fish.loginShellInit =
