@@ -128,6 +128,7 @@ in
     python2
     python3
     ripgrep
+    rustup
     unzip
     wget
     whois
