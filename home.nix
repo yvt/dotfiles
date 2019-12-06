@@ -16,6 +16,9 @@ in
     # Fancy shell prompt
     ./modules/programs/powerline-rs.nix
 
+    # Fancy tmux
+    ./modules/programs/powerline-tmux.nix
+
     # Fancy "ls"
     ./modules/programs/lsd.nix
 
