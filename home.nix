@@ -14,6 +14,7 @@ in
     (if pathExists ./local then ./local/home.nix else null)
 
     ./modules/programs/powerline-rs.nix
+    ./modules/programs/lsd.nix
   ];
 
   programs.home-manager.enable = true;
@@ -39,7 +40,6 @@ in
   # TODO: replace `TERM=screen` with `TERM=screen-256color`?
   # TODO: check `EDITOR` variable
   # TODO: add PATHs
-  # TODO: add LSD
 
   # configure PATH and other variables to use Nix
   programs.fish.loginShellInit =
