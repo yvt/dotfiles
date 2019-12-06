@@ -32,6 +32,8 @@ in
 
   programs.home-manager.enable = true;
 
+  home.sessionVariables.LC_ALL = "en_US.UTF-8";
+
   # configure PATH and other variables to use Nix
   programs.fish.loginShellInit =
     ''
