@@ -1,5 +1,5 @@
 import os
-from .paths import prefixes, executables, weak_executables
+from .paths import prefixes, executables, weak_executables, home
 import dotfiler.logger as log
 import os.path as path
 
@@ -246,3 +246,8 @@ class Lsd(Executable):
     def __init__(self):
         super(Lsd, self).__init__('lsd')
         self.search_standard_directories()
+
+class SingleUserNix(Executable):
+    def __init__(self):
+        super(SingleUserNix, self).__init__('nix-shell')
+        self.search_directory(path.join(home, '.nix-profile', 'bin'))

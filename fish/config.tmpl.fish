@@ -23,6 +23,12 @@ function add_path_weak
     and set -x PATH $PATH $ADDED_PATH
 end
 
+#* Fish-specific Nix profile initialization
+#!singleuser_nix = comps.SingleUserNix.get()
+#{if singleuser_nix.exists:
+source %{paths.dotfiles}/fish/nix.fish
+#}
+
 #* Emit the shared part
 %{shellrc.main(lib)}%>
 
