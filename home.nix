@@ -48,6 +48,18 @@ in
     "sc-s" = "systemctl status";
   };
 
+  # SSH Client
+  # -------------------------------------------------------------------------
+  programs.ssh = {
+    enable = true;
+    extraConfig =
+      ''
+      Host *
+        ServerAliveInterval 60
+        ServerAliveCountMax 1440
+      '';
+  };
+
   # TODO: replace `TERM=screen` with `TERM=screen-256color`?
   # TODO: check `EDITOR` variable
   # TODO: add PATHs
