@@ -18,6 +18,10 @@ in
 
     # Fancy "ls"
     ./modules/programs/lsd.nix
+
+    # Vim without GUI support, needed to support Darwin
+    # (https://github.com/NixOS/nixpkgs/issues/47452)
+    (if isDarwin then ./modules/programs/vim-nogui.nix else null)
   ];
 
   programs.home-manager.enable = true;
@@ -57,6 +61,35 @@ in
       Host *
         ServerAliveInterval 60
         ServerAliveCountMax 1440
+      '';
+  };
+
+  # Vim
+  # -------------------------------------------------------------------------
+  programs.vim = {
+    enable = !isDarwin;
+    plugins = with pkgs.vimPlugins; [
+      sleuth            # tabstop heuristics
+      airline           # fancy UI
+      editorconfig-vim  # load tabstop configuration etc.
+    ];
+    extraConfig =
+      ''
+      set shiftwidth=4
+      set smartindent
+      set nocompatible
+      set backspace=2
+      syntax on
+
+      " always show status line
+      set laststatus=2
+
+      " always show tabline
+      set showtabline=2
+
+      " configurations for airline
+      let g:airline_powerline_fonts=1
+      let g:airline#extensions#tabline#enabled = 1
       '';
   };
 
