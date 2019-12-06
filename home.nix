@@ -13,12 +13,23 @@ in
     (if pathExists ./private then ./private/home.nix else null)
     (if pathExists ./local then ./local/home.nix else null)
 
+    # Fancy shell prompt
     ./modules/programs/powerline-rs.nix
+
+    # Fancy "ls"
     ./modules/programs/lsd.nix
   ];
 
   programs.home-manager.enable = true;
 
+  # configure PATH and other variables to use Nix
+  programs.fish.loginShellInit =
+    ''
+      source ${./fish/nix.fish}
+    '';
+
+  # Shells
+  # -------------------------------------------------------------------------
   programs.fish.enable = true;
   programs.fish.shellAbbrs = {
     "e" = "edit";
@@ -42,6 +53,7 @@ in
   # TODO: add PATHs
 
   # Applications
+  # -------------------------------------------------------------------------
   home.packages = with pkgs; [
     gcc
     gdb
@@ -58,10 +70,4 @@ in
     wget
     whois
   ];
-
-  # configure PATH and other variables to use Nix
-  programs.fish.loginShellInit =
-    ''
-      source ${./fish/nix.fish}
-    '';
 }
