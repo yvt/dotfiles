@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 with import <nixpkgs> {};
 with builtins;
 with lib;
@@ -6,6 +6,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
 
 let
   isDarwin = hasSuffix "-darwin" currentSystem;
+  home = config.home.homeDirectory;
 in
 
 {
@@ -28,6 +29,9 @@ in
 
     # File synchronizer
     ./modules/programs/unison.nix
+
+    # Add `PATH`
+    ./modules/misc/paths.nix
   ];
 
   programs.home-manager.enable = true;
@@ -137,5 +141,27 @@ in
     unzip
     wget
     whois
+  ];
+
+  # Paths (`modules/misc/paths.nix`)
+  # -------------------------------------------------------------------------
+  home.strongPaths = [
+    "${home}/.rakudobrew/bin"
+    "${home}/.cargo/bin"
+    "${home}/.cabal/bin"
+    "${home}/.ghcup/bin"
+    "${home}/.nix-profile/bin"
+    "${home}/Library/Haskell/bin"
+
+    # `bin` in this dotfiles
+    "${home}/.config/nixpkgs/bin"
+    "${home}/.config/nixpkgs/private/bin"
+    "${home}/.config/nixpkgs/local/bin"
+  ];
+
+  home.paths = optional (!isDarwin) [
+    # Homebrew, MacPorts
+    "/usr/local/bin"
+    "/opt/local/bin"
   ];
 }
