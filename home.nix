@@ -41,6 +41,24 @@ in
   # TODO: check `EDITOR` variable
   # TODO: add PATHs
 
+  # Applications
+  home.packages = with pkgs; [
+    gcc
+    gdb
+    gnumake
+    gnupg
+    htop
+    jq
+    mosh
+    pandoc
+    ponysay
+    ripgrep
+    tmux
+    unzip
+    wget
+    whois
+  ];
+
   # configure PATH and other variables to use Nix
   programs.fish.loginShellInit =
     ''
