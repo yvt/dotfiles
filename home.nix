@@ -25,6 +25,9 @@ in
 
     # Environment manager for Python
     ./modules/programs/pipenv.nix
+
+    # File synchronizer
+    ./modules/programs/unison.nix
   ];
 
   programs.home-manager.enable = true;
