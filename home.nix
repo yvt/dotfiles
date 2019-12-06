@@ -22,6 +22,9 @@ in
     # Vim without GUI support, needed to support Darwin
     # (https://github.com/NixOS/nixpkgs/issues/47452)
     (if isDarwin then ./modules/programs/vim-nogui.nix else null)
+
+    # Environment manager for Python
+    ./modules/programs/pipenv.nix
   ];
 
   programs.home-manager.enable = true;
@@ -109,6 +112,8 @@ in
     mosh
     pandoc
     ponysay
+    python2
+    python3
     ripgrep
     tmux
     unzip
