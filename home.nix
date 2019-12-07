@@ -128,9 +128,6 @@ in
   # Applications
   # -------------------------------------------------------------------------
   home.packages = with pkgs; [
-    gcc
-    gdb
-    gnumake
     gnupg
     htop
     jq
@@ -144,6 +141,10 @@ in
     unzip
     wget
     whois
+  ] ++ optionals (!isDarwin) [
+    gcc
+    gdb
+    gnumake
   ];
 
   # Paths (`modules/misc/paths.nix`)
