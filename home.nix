@@ -108,6 +108,12 @@ in
       '';
   };
 
+  programs.fish.interactiveShellInit =
+    ''
+    not contains $EDITOR vim subl; and set -x EDITOR vim
+    not contains $VISUAL vim subl; and set -x VISUAL vim
+    '';
+
   # tmux
   # -------------------------------------------------------------------------
   programs.tmux = {
