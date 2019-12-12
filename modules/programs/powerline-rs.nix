@@ -16,14 +16,16 @@ in
     };
   };
 
-  config.programs.fish.promptInit =
-    let
-      modules = concatStringsSep "," cfg.modules;
-    in
-      ''
-      function fish_prompt
-        ${pkgs.powerline-rs}/bin/powerline-rs --shell bare $status --modules '${modules}'
-      end
-      '';
-  # TODO: zsh, bash
+  config = mkIf cfg.enable {
+    programs.fish.promptInit =
+      let
+        modules = concatStringsSep "," cfg.modules;
+      in
+        ''
+        function fish_prompt
+          ${pkgs.powerline-rs}/bin/powerline-rs --shell bare $status --modules '${modules}'
+        end
+        '';
+    # TODO: zsh, bash
+  };
 }
