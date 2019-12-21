@@ -7,6 +7,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
 let
   isDarwin = hasSuffix "-darwin" currentSystem;
   home = config.home.homeDirectory;
+  nixProfileBin = "${home}/.nix-profile/bin";
 in
 
 {
@@ -109,9 +110,13 @@ in
   };
 
   programs.fish.interactiveShellInit =
+    let
+      # Force the use of a customized vim instead of a system-provided one
+      vim = "${nixProfileBin}/vim";
+    in
     ''
-    not contains $EDITOR vim subl; and set -x EDITOR vim
-    not contains $VISUAL vim subl; and set -x VISUAL vim
+    not contains $EDITOR ${vim} subl; and set -x EDITOR ${vim}
+    not contains $VISUAL ${vim} subl; and set -x VISUAL ${vim}
     '';
 
   # tmux
