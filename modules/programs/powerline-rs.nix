@@ -12,7 +12,7 @@ in
     modules = mkOption {
       description = "The list of modules to load";
       default = [ "ssh" "cwd" "perms" "git" "gitstage" "root" ];
-      type = types.listOf types.str;
+      type = types.uniq (types.listOf types.str);
     };
   };
 
