@@ -144,6 +144,7 @@ in
     jq
     mosh
     pandoc
+    poetry
     ponysay
     python2
     python3
