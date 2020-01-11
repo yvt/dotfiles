@@ -153,6 +153,8 @@ in
     unzip
     wget
     whois
+    git
+    mercurial
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
