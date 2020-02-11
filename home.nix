@@ -168,6 +168,8 @@ in
     "${home}/.cargo/bin"
     "${home}/.cabal/bin"
     "${home}/.ghcup/bin"
+    "${home}/.local/bin"
+    "${home}/.dotnet/tools"
     "${home}/.nix-profile/bin"
     "${home}/Library/Haskell/bin"
 
