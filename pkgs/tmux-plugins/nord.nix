@@ -5,7 +5,7 @@ let
 
   derivation = stdenv.mkDerivation {
     name = "tmuxplugin-nord";
-    pluginName = "nord";
+    pname = "tmuxplugin-nord";
     src = fetchgit {
       url = "https://github.com/arcticicestudio/nord-tmux";
       rev = "25c64f5fc4ff716fae7256d9a8f6af4724644edc";
