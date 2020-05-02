@@ -16,7 +16,7 @@ let
         (f: ! lib.hasPrefix "--enable-gui" f) oa.configureFlags;
 
       buildInputs = lib.filter
-        (f: ! lib.hasPrefix "libX" f.name && ! lib.hasPrefix "gtk3-x11" f.name) oa.buildInputs;
+        (f: ! lib.hasPrefix "libX" f.name && ! lib.hasPrefix "gtk" f.name) oa.buildInputs;
     });
 
   vim = vim_configurable.customize {
