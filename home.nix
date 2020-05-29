@@ -133,9 +133,6 @@ in
     ];
   };
 
-  # TODO: check `EDITOR` variable
-  # TODO: add PATHs
-
   # Applications
   # -------------------------------------------------------------------------
   home.packages = with pkgs; [
