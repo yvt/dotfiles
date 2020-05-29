@@ -152,6 +152,7 @@ in
     whois
     git
     mercurial
+    deno
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
