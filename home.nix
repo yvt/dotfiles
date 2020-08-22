@@ -175,6 +175,9 @@ in
     "${home}/.config/nixpkgs/bin"
     "${home}/.config/nixpkgs/private/bin"
     "${home}/.config/nixpkgs/local/bin"
+
+    # iTerm2 utilities
+    "${home}/.iterm2"
   ];
 
   home.paths = optionals (!isDarwin) [
