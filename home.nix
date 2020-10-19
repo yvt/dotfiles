@@ -95,6 +95,7 @@ in
       set smartindent
       set nocompatible
       set backspace=2
+      set maxmempattern=100000
       syntax on
 
       " always show status line
