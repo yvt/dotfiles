@@ -65,7 +65,8 @@ in
 
   programs.powerline-rs = {
     enable = true;
-    modules = [ "host" "cwd" "perms" "git" "gitstage" "root" ];
+    # remove `git` and `gitstage` because it confuses tmux. Also, it's slow.
+    modules = [ "host" "nix-shell" "cwd" "perms" "root" ];
   };
 
   # SSH Client
