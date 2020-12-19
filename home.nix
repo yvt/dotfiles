@@ -152,9 +152,12 @@ in
     unzip
     wget
     whois
+    pv
     git
     mercurial
     deno
+    imagemagick
+    xz
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
