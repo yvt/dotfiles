@@ -153,7 +153,7 @@ in
     wget
     whois
     pv
-    git
+    gitSVN
     mercurial
     deno
     imagemagick
