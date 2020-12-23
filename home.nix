@@ -39,9 +39,17 @@ in
 
   home.sessionVariables.LC_ALL = "en_US.UTF-8";
 
-  # configure PATH and other variables to use Nix
   programs.fish.loginShellInit =
-    if isDarwin then "source ${./fish/nix.fish}" else "";
+      ''
+      # Setup opam (OCaml package manager). It must be initialized
+      # by `opam init` before use.
+      source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+      '' +
+    (optionalString isDarwin
+      ''
+      # configure PATH and other variables to use Nix
+      source ${./fish/nix.fish}
+      '');
 
   # Shells
   # -------------------------------------------------------------------------
@@ -148,7 +156,7 @@ in
     python2
     python3
     ripgrep
-    rustup
+    # rustup
     unzip
     wget
     whois
@@ -158,6 +166,7 @@ in
     deno
     imagemagick
     xz
+    opam
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
