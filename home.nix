@@ -167,6 +167,7 @@ in
     imagemagick
     xz
     opam
+    rlwrap
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
