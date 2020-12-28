@@ -64,12 +64,13 @@ in stdenv.mkDerivation rec {
       -e 's,^WINTTYLIB=.*,WINTTYLIB=-lncurses,' \
       -i sys/unix/hints/linux.2020
     sed \
-      -e 's,^CC=.*$,CC=cc -fsanitize=address,' \
+      -e 's,^CC=.*$,CC=cc,' \
       -e 's,^HACKDIR=.*$,HACKDIR=\$(PREFIX)/games/lib/\$(GAME)dir,' \
       -e 's,^SHELLDIR=.*$,SHELLDIR=\$(PREFIX)/games,' \
       -e 's,^WANT_BUNDLE=1,,' \
-      -e 's,^CFLAGS=-g,CFLAGS=,' \
+      -e 's,^CCFLAGS = -g,CCFLAGS = -g -fsanitize=address -fsanitize=undefined,' \
       -i sys/unix/hints/macOS.2020
+    echo 'LFLAGS := $(LFLAGS) -fsanitize=address -fsanitize=undefined' >> sys/unix/hints/macOS.2020
     sed -e '/define CHDIR/d' -i include/config.h
     ${lib.optionalString qtMode ''
     sed \
