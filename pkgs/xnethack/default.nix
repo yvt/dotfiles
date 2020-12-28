@@ -141,7 +141,7 @@ in stdenv.mkDerivation rec {
     for i in $out/games/lib/xnethackdir/*; do
       ln -s \$i \$(basename \$i)
     done
-    $out/games/xnethack
+    $out/games/xnethack "\$@"
     EOF
     chmod +x $out/bin/xnethack
     ${lib.optionalString x11Mode "mv $out/bin/xnethack $out/bin/xnethack-x11"}
