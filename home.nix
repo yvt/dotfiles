@@ -164,7 +164,7 @@ in
     gitSVN
     mercurial
     deno
-    imagemagick
+    imagemagick7
     xz
     opam
     rlwrap
