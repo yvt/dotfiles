@@ -158,6 +158,7 @@ in
     ripgrep
     # rustup
     unzip
+    p7zip
     wget
     whois
     pv
