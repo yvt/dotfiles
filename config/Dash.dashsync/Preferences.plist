@@ -215,6 +215,11 @@
 	<dict>
 		<key>installed</key>
 		<dict>
+			<key>http://kapeli.com/feeds/Apache_HTTP_Server.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2021-03-13T10:55:34Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Apple_API_Reference.xml</key>
 			<dict>
 				<key>date</key>
