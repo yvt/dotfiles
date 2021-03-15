@@ -33,6 +33,9 @@ in
 
     # Add `PATH`
     ./modules/misc/paths.nix
+
+    # `stylesheet.css`
+    ./modules/misc/stylesheet.nix
   ];
 
   programs.home-manager.enable = true;
