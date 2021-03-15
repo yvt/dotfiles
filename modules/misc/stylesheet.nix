@@ -8,6 +8,7 @@ let
   inherit (lib)
     assertMsg
     concatStringsSep
+    flatten
     mkOption
     mkIf
     options
@@ -46,25 +47,28 @@ in
     let
       searchResultBlacklist = unique cfg.searchResultBlacklist;
 
-      duckBlacklistSelectors = map (pattern:
+      duckBlacklistSelectors = flatten (map (pattern:
         let
           anyPrefix = (pattern != "") && ((substring 0 1 pattern) == "*");
           anySuffix = (pattern != "") && ((substring (stringLength pattern - 1) 1 pattern) == "*");
           pattern2 = if anyPrefix then substring 1 (stringLength pattern - 1) pattern else pattern;
           pattern3 = if anySuffix then substring 0 (stringLength pattern2 - 1) pattern2 else pattern2;
-        in
-          assert assertMsg (builtins.match ".*\\*.*" pattern3 == null)
-            "The element `${pattern}` of `home.stylesheet.searchResultBlacklist` ${
-              ""}cannot be expressed by a CSS selector.";
-          if anyPrefix && anySuffix then
-            "div.result[data-domain*=\"${pattern3}\"]"
-          else if anySuffix then
-            "div.result[data-domain^=\"${pattern3}\"]"
-          else if anyPrefix then
-            "div.result[data-domain$=\"${pattern3}\"]"
-          else
-            "div.result[data-domain=\"${pattern3}\"]"
-        ) searchResultBlacklist;
+
+          resultSelector =
+            assert assertMsg (builtins.match ".*\\*.*" pattern3 == null)
+              "The element `${pattern}` of `home.stylesheet.searchResultBlacklist` ${
+                ""}cannot be expressed by a CSS selector.";
+            if anyPrefix && anySuffix then
+              "div.result[data-domain*=\"${pattern3}\"]"
+            else if anySuffix then
+              "div.result[data-domain^=\"${pattern3}\"]"
+            else if anyPrefix then
+              "div.result[data-domain$=\"${pattern3}\"]"
+            else
+              "div.result[data-domain=\"${pattern3}\"]";
+
+          in [resultSelector (resultSelector + " + .results__sitelink--organics")]
+        ) searchResultBlacklist);
 
       duckBlacklistConfig =
         optionalString (duckBlacklistSelectors != []) (
@@ -74,7 +78,8 @@ in
               opacity: 0.1;
             }
 
-            div.result[data-domain]:hover { opacity: 1 !important; }
+            div.result[data-domain]:hover,
+            div.result[data-domain] + .results__sitelink--organics:hover { opacity: 1 !important; }
           ''
         );
 
