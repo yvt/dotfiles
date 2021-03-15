@@ -4,17 +4,24 @@ let
   inherit (builtins)
     match
     substring
-    stringLength;
+    stringLength
+    head
+    tail
+    map
+    filter;
   inherit (lib)
     assertMsg
     concatStringsSep
     flatten
+    literalExample
     mkOption
     mkIf
+    mapNullable
     options
     optionalString
     types
-    unique;
+    unique
+    splitString;
 
   cfg = config.home.stylesheet;
 in
@@ -43,9 +50,42 @@ in
     type = types.listOf types.str;
   };
 
+  options.home.stylesheet.searchResultBlacklistByUBlacklist = mkOption {
+    description = ''
+      Hides (but does not completely removes) the specified domains
+      in DuckDuckGo search results. Specified in the uBlacklist format.
+      Only the lines matching the regex
+      <code>/^(\*|http|https):\/\/(.*)/\*$/</code> are processed and the rest
+      are ignored silently.
+    '';
+    default = "";
+    example = literalExample ''
+      "*://*.example.com/*\n"
+      + (readFile (fetchurl {
+        url = "https://raw.githubusercontent.com/sfsef/uBlacklist-subscription/f922de8902986629042ef962cc9825c1a6b672e0/blocklist.txt";
+        sha256 = "1bcykyajla2r66cpyfiag24y6kin3rdrp75mps7i39nwqj6wacf8";
+      }))
+    '';
+    type = types.lines;
+  };
+
   config = mkIf cfg.enable (
     let
-      searchResultBlacklist = unique cfg.searchResultBlacklist;
+      /* Extract valid entries from a given uBlacklist blacklist to use with
+        `home.stylesheet.searchResultBlacklist`. */
+      parseUBlacklist = text:
+        let
+          lines = splitString "\n" text;
+        in
+          filter (line: line != null)
+            (map (line:
+              mapNullable
+                (matchResult: head (tail matchResult))
+                (match "(\\*|http|https)://(.*)/\\*\r?" line)) lines);
+
+      searchResultBlacklist = unique
+        (cfg.searchResultBlacklist
+          ++ (parseUBlacklist cfg.searchResultBlacklistByUBlacklist));
 
       duckBlacklistSelectors = flatten (map (pattern:
         let
