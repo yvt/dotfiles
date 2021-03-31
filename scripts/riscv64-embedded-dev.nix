@@ -18,5 +18,6 @@ runCommand "dummy" rec {
         libc = null;
         noLibc = true;
       })
+    crossBuildPkgs.gcc-unwrapped
   ];
 } ""
