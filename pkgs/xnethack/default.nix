@@ -28,8 +28,8 @@ in stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "copperwater";
     repo = "xNetHack";
-    rev = "09d2513991b27a9b2ab430a1eb28fa9ba9473fda";
-    sha256 = "19i620n0cj8y5lr93iaprl8r0fjx5acm5lp0mzh20vrpbg6g6y14";
+    rev = "287d658b1fc18f8528439a8383b589f508973c08";
+    sha256 = "15kwvd8c3dpbv5lfffhlabs48mm72iy5sqa0c5l02ghvqqjga585";
     fetchSubmodules = true;
   };
 
