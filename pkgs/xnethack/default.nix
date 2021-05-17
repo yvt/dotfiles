@@ -107,7 +107,7 @@ in stdenv.mkDerivation rec {
   # `makedefs`
   enableParallelBuilding = false;
 
-  preFixup = stdenv.lib.optionalString qtMode ''
+  preFixup = lib.optionalString qtMode ''
     wrapQtApp "$out/games/xnethack"
   '';
 
@@ -150,7 +150,7 @@ in stdenv.mkDerivation rec {
     ${lib.optionalString (!(x11Mode || qtMode)) "install -Dm 555 util/dlb -t $out/libexec/xnethack/"}
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Rogue-like game";
     homepage = "https://github.com/copperwater/xNetHack";
     license = "nethack";
