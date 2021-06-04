@@ -63,6 +63,7 @@ in stdenv.mkDerivation rec {
       -e 's,/bin/gzip,${gzip}/bin/gzip,g' \
       -e 's,^WINTTYLIB=.*,WINTTYLIB=-lncurses,' \
       -i sys/unix/hints/linux.2020
+    echo 'LFLAGS += -ldl' >> sys/unix/hints/linux.2020
     sed \
       -e 's,^CC=.*$,CC=${stdenv.cc.targetPrefix}cc,' \
       -e 's,^HACKDIR=.*$,HACKDIR=\$(PREFIX)/games/lib/\$(GAME)dir,' \
