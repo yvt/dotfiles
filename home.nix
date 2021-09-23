@@ -216,6 +216,7 @@ in
     xz
     opam
     rlwrap
+    zstd
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
