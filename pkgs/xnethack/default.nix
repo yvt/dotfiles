@@ -69,9 +69,7 @@ in stdenv.mkDerivation rec {
       -e 's,^HACKDIR=.*$,HACKDIR=\$(PREFIX)/games/lib/\$(GAME)dir,' \
       -e 's,^SHELLDIR=.*$,SHELLDIR=\$(PREFIX)/games,' \
       -e 's,^WANT_BUNDLE=1,,' \
-      -e 's,^CCFLAGS = -g,CCFLAGS = -g -fsanitize=address -fsanitize=undefined,' \
       -i sys/unix/hints/macOS.2020
-    echo 'LFLAGS := $(LFLAGS) -fsanitize=address -fsanitize=undefined' >> sys/unix/hints/macOS.2020
     sed -e '/define CHDIR/d' -i include/config.h
     ${lib.optionalString qtMode ''
     sed \
