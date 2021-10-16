@@ -6,6 +6,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
 
 let
   isDarwin = hasSuffix "-darwin" currentSystem;
+  isDarwinAArch64 = isDarwin && hasPrefix "aarch64-" currentSystem;
   home = config.home.homeDirectory;
   nixProfileBin = "${home}/.nix-profile/bin";
 in
@@ -24,6 +25,9 @@ in
     # Vim without GUI support, needed to support Darwin
     # (https://github.com/NixOS/nixpkgs/issues/47452)
     (if isDarwin then ./modules/programs/vim-nogui.nix else null)
+
+    # Override packages unsupported in aarch64-apple-darwin
+    (if isDarwinAArch64 then ./modules/misc/darwin-intel.nix else null)
 
     # Environment manager for Python
     ./modules/programs/pipenv.nix
