@@ -13,6 +13,7 @@ if [ -n "$HOME" ] && [ -n "$USER" ]
 
     # Append ~/.nix-defexpr/channels to $NIX_PATH so that <nixpkgs>
     # paths work when the user has fetched the Nixpkgs channel.
+    set NIX_PATH /nix/var/nix/profiles/per-user/root/channels
     set -x NIX_PATH (echo $NIX_PATH:)$HOME/.nix-defexpr/channels
 
     # Set up environment.
