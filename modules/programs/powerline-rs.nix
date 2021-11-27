@@ -17,7 +17,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.fish.promptInit =
+    programs.fish.interactiveShellInit =
       let
         modules = concatStringsSep "," cfg.modules;
       in
