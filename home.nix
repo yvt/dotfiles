@@ -207,7 +207,7 @@ in
     python2
     python3
     ripgrep
-    # rustup
+    rustup
     unzip
     p7zip
     wget
