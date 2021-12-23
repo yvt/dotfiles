@@ -221,6 +221,7 @@ in
     opam
     rlwrap
     zstd
+    file
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
