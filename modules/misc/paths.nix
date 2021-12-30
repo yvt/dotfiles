@@ -37,6 +37,24 @@ in
       '' +
       (concatStrings (map (p: "add_path '${p}'\n") cfg.strongPaths)) +
       (concatStrings (map (p: "add_path_weak '${p}'\n") cfg.paths));
-    # TODO: bash, zsh
+
+    programs.zsh.initExtra =
+      ''
+      add_path() {
+          if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+              PATH="''${PATH:+"$PATH:"}$1"
+          fi
+      }
+
+      add_path_weak() {
+          if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+              PATH="''${PATH:+"$PATH:"}$1"
+          fi
+      }
+      '' +
+      (concatStrings (map (p: "add_path '${p}'\n") cfg.strongPaths)) +
+      (concatStrings (map (p: "add_path_weak '${p}'\n") cfg.paths));
+
+    # TODO: bash
   };
 }

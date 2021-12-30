@@ -58,6 +58,13 @@ in
       source ${./fish/nix.fish}
       '');
 
+  programs.zsh.initExtra =
+    (optionalString isDarwin
+      ''
+      # configure PATH and other variables to use Nix
+      . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+      '');
+
   # Shells
   # -------------------------------------------------------------------------
   programs.fish.enable = true;
@@ -76,6 +83,14 @@ in
     "sc-p" = "systemctl stop";
     "sc-r" = "systemctl restart";
     "sc-s" = "systemctl status";
+  };
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    autocd = true;
   };
 
   programs.powerline-rs = {
