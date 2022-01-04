@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+
+# Compares two results of Servo Mach tests
+
+import sys, json, tempfile, os, subprocess
+
+def load_summary_log(path):
+	with open(path) as f:
+		lines = (line.strip() for line in f if line.strip() != '')
+		objs = (json.loads(line) for line in lines)
+		return dict((obj['test'], obj['output']) for obj in objs)
+
+lhs = load_summary_log(sys.argv[1])
+rhs = load_summary_log(sys.argv[2])
+
+if len(sys.argv) > 3:
+	with open(sys.argv[3]) as f:
+		lines = (line.strip() for line in f if line.strip() != '')
+		filter_set = set(lines)
+	filter_func = lambda test_name: test_name in filter_set
+else:
+	filter_func = lambda _: True
+
+all_tests = list(set(list(lhs.keys()) + list(rhs.keys())))
+all_tests.sort()
+
+with tempfile.NamedTemporaryFile() as tmp_l, tempfile.NamedTemporaryFile() as tmp_r:
+	for test in all_tests:
+		if not filter_func(test):
+			continue
+		l = lhs.get(test, '')
+		r = rhs.get(test, '')
+		if l == r:
+			print('[%s] IDENTICAL' % test)
+			print(l)
+			continue
+		print('[%s]' % test)
+		sys.stdout.flush()
+		tmp_l.truncate(0)
+		tmp_r.truncate(0)
+		tmp_l.seek(0)
+		tmp_r.seek(0)
+		tmp_l.write(l.encode())
+		tmp_r.write(r.encode())
+		tmp_l.flush()
+		tmp_r.flush()
+		subprocess.run(['diff', '-a', '--color=always', tmp_l.name, tmp_r.name])
+		print()
