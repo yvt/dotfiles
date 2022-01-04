@@ -16,4 +16,6 @@ rec {
   qemu_4_2_riscv64 = qemu_4_2.override { hostCpuTargets = ["riscv64-softmmu"]; };
 
   xnethack = callPackage ./xnethack;
+
+  gtkterm = callPackage ./gtkterm;
 }
