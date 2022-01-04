@@ -10,7 +10,7 @@ let
     dontUnpack = true;
     buildInputs = [ pkgs.pipenv ];
     buildPhase = ''
-      _PIPENV_COMPLETE=source-fish pipenv > setenv.fish
+      _PIPENV_COMPLETE=source-fish pipenv > setenv.fish || true
     '';
     installPhase = ''
       mkdir -p $out/bin
