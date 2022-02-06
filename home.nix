@@ -254,6 +254,7 @@ in
     "${home}/.dotnet/tools"
     "${home}/.nix-profile/bin"
     "${home}/Library/Haskell/bin"
+    "/nix/var/nix/profiles/default/bin"
 
     # `bin` in this dotfiles
     "${home}/.config/nixpkgs/bin"
