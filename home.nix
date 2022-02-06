@@ -237,6 +237,8 @@ in
     rlwrap
     zstd
     file
+    openssh
+    torsocks
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
