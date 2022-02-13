@@ -239,6 +239,7 @@ in
     file
     openssh
     torsocks
+    tagref
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
