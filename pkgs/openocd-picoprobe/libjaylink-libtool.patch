@@ -1,0 +1,7 @@
+--- a/src/jtag/drivers/libjaylink/autogen.sh
++++ b/src/jtag/drivers/libjaylink/autogen.sh
+@@ -24,3 +24,0 @@
+-if [ "x$OS" = "xDarwin" ]; then
+-	LIBTOOLIZE=glibtoolize
+-fi
+
