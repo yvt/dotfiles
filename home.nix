@@ -222,6 +222,7 @@ in
     python2
     python3
     ripgrep
+    fd
     rustup
     unzip
     p7zip
