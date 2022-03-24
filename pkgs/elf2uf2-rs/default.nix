@@ -1,4 +1,4 @@
-{ stdenv, lib, rustPlatform, fetchFromGitHub, libudev, pkgconfig }:
+{ stdenv, lib, rustPlatform, fetchFromGitHub, udev, pkgconfig }:
 
 rustPlatform.buildRustPackage rec {
   pname = "elf2uf2-rs";
@@ -14,6 +14,6 @@ rustPlatform.buildRustPackage rec {
   cargoSha256 = "01j40z83vzl11v5zw8is0r3v7f4mqb6m3wwzw0fib1acixhl8692";
 
   nativeBuildInputs = lib.optionals stdenv.isLinux [ pkgconfig ];
-  buildInputs = lib.optionals stdenv.isLinux [ libudev ];
+  buildInputs = lib.optionals stdenv.isLinux [ udev ];
 }
 
