@@ -250,6 +250,11 @@
 				<key>date</key>
 				<date>2020-12-02T15:04:43Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Docker.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2022-03-28T05:05:47Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Express.xml</key>
 			<dict>
 				<key>date</key>
