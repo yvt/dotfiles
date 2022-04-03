@@ -223,6 +223,7 @@ in
     python3
     ripgrep
     fd
+    socat
     rustup
     unzip
     p7zip
