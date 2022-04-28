@@ -50,7 +50,8 @@ in
       ''
       # Setup opam (OCaml package manager). It must be initialized
       # by `opam init` before use.
-      source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+      # FIXME: Doesn't support Fish 3.4
+      # source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
       '' +
     (optionalString isDarwin
       ''
