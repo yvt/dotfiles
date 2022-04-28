@@ -196,6 +196,16 @@ in
     not contains $VISUAL ${vim} subl; and set -x VISUAL ${vim}
     '';
 
+  # Helix
+  # -------------------------------------------------------------------------
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "nord";
+      lsp.display-messages = true;
+    };
+  };
+
   # tmux
   # -------------------------------------------------------------------------
   programs.tmux = {
