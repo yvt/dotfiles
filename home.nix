@@ -202,7 +202,6 @@ in
     enable = true;
     settings = {
       theme = "nord";
-      lsp.display-messages = true;
     };
   };
 
