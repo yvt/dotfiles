@@ -217,6 +217,11 @@ in
     # Handle Escape quickly
     escapeTime = 100;
 
+    extraConfig = ''
+      # Enable true colors on `xterm-256color*`
+      set -ga terminal-overrides ",xterm-256color*:Tc"
+    '';
+
     plugins = [
       (callPackage ./pkgs/tmux-plugins/nord.nix {})
     ];
