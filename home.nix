@@ -214,6 +214,9 @@ in
     # Want the session to survive user logout
     secureSocket = false;
 
+    # Handle Escape quickly
+    escapeTime = 100;
+
     plugins = [
       (callPackage ./pkgs/tmux-plugins/nord.nix {})
     ];
