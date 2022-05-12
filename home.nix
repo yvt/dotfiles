@@ -203,6 +203,12 @@ in
     settings = {
       theme = "nord";
     };
+    languages = [
+      {
+        name = "rust";
+        language-server = { command = "${./bin/rustup-rust-analyzer}"; };
+      }
+    ];
   };
 
   # tmux
