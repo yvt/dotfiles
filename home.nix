@@ -202,6 +202,7 @@ in
     enable = true;
     settings = {
       theme = "nord";
+      editor.idle-timeout = 100;
     };
     languages = [
       {
