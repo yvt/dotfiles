@@ -203,6 +203,7 @@ in
     settings = {
       theme = "everforest_dark";
       editor.idle-timeout = 100;
+      editor.line-number = "relative";
     };
     languages = [
       {
