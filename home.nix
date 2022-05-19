@@ -201,7 +201,7 @@ in
   programs.helix = {
     enable = true;
     settings = {
-      theme = "nord";
+      theme = "everforest_dark";
       editor.idle-timeout = 100;
     };
     languages = [
