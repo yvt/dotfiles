@@ -190,10 +190,11 @@ in
     let
       # Force the use of a customized vim instead of a system-provided one
       vim = "${nixProfileBin}/vim";
+      editor = "${config.programs.helix.package}/bin/hx";
     in
     ''
-    not contains $EDITOR ${vim} subl; and set -x EDITOR ${vim}
-    not contains $VISUAL ${vim} subl; and set -x VISUAL ${vim}
+    not contains $EDITOR ${vim} subl ${editor}; and set -x EDITOR ${editor}
+    not contains $VISUAL ${vim} subl ${editor}; and set -x VISUAL ${editor}
     '';
 
   # Helix
