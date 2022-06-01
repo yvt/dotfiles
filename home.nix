@@ -202,9 +202,10 @@ in
   programs.helix = {
     enable = true;
     settings = {
-      theme = "everforest_dark";
+      theme = "dark_plus";
       editor.idle-timeout = 100;
       editor.line-number = "relative";
+      editor.rulers = [ 75 80 100 ];
     };
     languages = [
       {
