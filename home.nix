@@ -271,6 +271,7 @@ in
     torsocks
     tagref
     b3sum
+    srm
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
