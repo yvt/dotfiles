@@ -270,6 +270,7 @@ in
     openssh
     torsocks
     tagref
+    b3sum
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
