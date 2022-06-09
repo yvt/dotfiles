@@ -237,6 +237,31 @@ in
     ];
   };
 
+  # Git
+  # -------------------------------------------------------------------------
+  programs.git = {
+    enable = true;
+    package = pkgs.gitAndTools.gitFull;
+
+    extraConfig = {
+      # Don't create a merge commit on `git pull`
+      pull.ff = "only";
+
+      # Initial branch name
+      init.defaultBranch = "main";
+
+      # <https://www.michaelheap.com/git-ignore-rev/>
+      # Load the list of blame-exempt commits as per convention
+      blame.ignoreRevsFile = ".git-blame-ignore-revs";
+      # Mark any lines that have had a commit skipped using --ignore-rev with a
+      # `?`
+      blame.markIgnoredLines = true;
+      # Mark any lines that were added in a skipped commit and can not be
+      # attributed with a `*`
+      blame.markUnblamableLines = true;
+    };
+  };
+
   # Applications
   # -------------------------------------------------------------------------
   home.packages = with pkgs; [
@@ -258,7 +283,6 @@ in
     wget
     whois
     pv
-    gitSVN
     mercurial
     deno
     imagemagick7
