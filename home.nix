@@ -243,6 +243,12 @@ in
     enable = true;
     package = pkgs.gitAndTools.gitFull;
 
+    # Structural diff <https://github.com/Wilfred/difftastic>
+    difftastic = {
+      enable = true;
+      background = "dark";
+    };
+
     extraConfig = {
       # Don't create a merge commit on `git pull`
       pull.ff = "only";
