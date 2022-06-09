@@ -268,6 +268,10 @@ in
     };
   };
 
+  programs.gitui = {
+    enable = true;
+  };
+
   # Applications
   # -------------------------------------------------------------------------
   home.packages = with pkgs; [
