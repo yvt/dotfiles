@@ -40,6 +40,9 @@ in
 
     # `stylesheet.css`
     ./modules/misc/stylesheet.nix
+
+    # Terminal workspace
+    ./modules/programs/zellij.nix
   ];
 
   programs.home-manager.enable = true;
