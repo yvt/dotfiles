@@ -29,7 +29,6 @@ in
   options.home.stylesheet.enable = mkOption {
     description = "Enables the generation of the `~/.local/stylesheet.cs` file.";
     default = false;
-    example = [ "/usr/local/bin" ];
     type = types.bool;
   };
 
