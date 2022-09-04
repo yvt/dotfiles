@@ -209,6 +209,8 @@ in
       editor.idle-timeout = 100;
       editor.line-number = "relative";
       editor.rulers = [ 75 80 100 ];
+      editor.indent-guides.render = true;
+      editor.indent-guides.character = "▏";
     };
     languages = [
       {
