@@ -31,4 +31,8 @@ You might not want to expose SSH config files or something like that into the pu
 Local directory
 ---------------
 
-Place host-local configuration files in `local`.
+Place host-local configuration files in `local`. See `local-example` for an
+example.
+
+It's recommended to define `home.{stateVersion,username,homeDirectory}`
+(required starting from Home Manager release 22.11) in `local/home.nix`.
