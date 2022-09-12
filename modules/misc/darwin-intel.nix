@@ -28,10 +28,5 @@ in
     ocaml = pkgsIntel.ocaml;
     opam = pkgsIntel.opam;
     unison = pkgsIntel.unison;
-
-    # 0.21.0 is too old to have Apple M1 support.
-    # <https://github.com/bytecodealliance/wasmtime/blob/main/RELEASES.md#0260>
-    wasmtime = pkgsIntel.wasmtime;
-
   } ) ];
 }
