@@ -346,6 +346,7 @@ in
     tagref
     b3sum
     srm
+    unrar
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
