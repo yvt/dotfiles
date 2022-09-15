@@ -347,6 +347,7 @@ in
     b3sum
     srm
     unrar
+    ffmpeg
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
