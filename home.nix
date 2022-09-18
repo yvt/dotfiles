@@ -326,7 +326,14 @@ in
     poetry
     ponysay
     python2
-    python3
+    (python3.withPackages (
+      ps: with ps; [
+        virtualenv
+        numpy
+        toml
+        requests
+      ]
+    ))
     ripgrep
     fd
     socat
