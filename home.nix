@@ -43,6 +43,9 @@ in
 
     # Terminal workspace
     ./modules/programs/zellij.nix
+
+    # Mosh
+    ./modules/programs/mosh.nix
   ];
 
   programs.home-manager.enable = true;
