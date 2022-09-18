@@ -22,11 +22,5 @@ in
   nixpkgs.overlays = [ (self: super: {
     # Binary distribution availability
     gcc-arm-embedded = pkgsIntel.gcc-arm-embedded;
-
-    # OCaml
-    ocamlPackages = pkgsIntel.ocamlPackages;
-    ocaml = pkgsIntel.ocaml;
-    opam = pkgsIntel.opam;
-    unison = pkgsIntel.unison;
   } ) ];
 }
