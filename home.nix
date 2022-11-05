@@ -333,6 +333,7 @@ in
         numpy
         toml
         requests
+        python-lsp-server
       ]
     ))
     ripgrep
