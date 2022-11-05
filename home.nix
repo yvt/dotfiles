@@ -125,7 +125,6 @@ in
     plugins = with pkgs.vimPlugins; [
       sleuth            # tabstop heuristics
       airline           # fancy UI
-      editorconfig-vim  # load tabstop configuration etc.
       rust-vim          # Rust <https://github.com/rust-lang/rust.vim>
       vim-lsp           # LSP support <https://github.com/prabirshrestha/vim-lsp>
     ];
