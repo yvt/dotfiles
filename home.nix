@@ -214,6 +214,7 @@ in
       editor.indent-guides.render = true;
       editor.indent-guides.character = "▏";
       editor.color-modes = true;
+      editor.bufferline = "always";
     };
     languages = [
       {
