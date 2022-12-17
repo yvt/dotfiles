@@ -360,6 +360,7 @@ in
     srm
     unrar
     ffmpeg
+    nil  # Nix language server
   ] ++ optionals (!isDarwin) [
     gcc
     gdb
