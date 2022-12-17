@@ -207,7 +207,7 @@ in
   programs.helix = {
     enable = true;
     settings = {
-      theme = "onedark";
+      theme = "dark_plus";
       editor.idle-timeout = 100;
       editor.line-number = "relative";
       editor.rulers = [ 72 80 100 ];
